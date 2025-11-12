@@ -5,54 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Age Calculator</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
-  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'primary': 'hsl(259, 100%, 65%)',
+            'error': 'hsl(0, 100%, 67%)',
+            'off-black': 'hsl(0, 0%, 8%)',
+            'dark-gray': 'hsl(0, 0%, 20%)',
+            'light-gray': 'hsl(0, 0%, 86%)',
+            'bg-gray': 'hsl(0, 0%, 94%)'
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .input-field {
+        @apply w-full px-4 py-3.5 rounded-lg border border-light-gray font-bold text-lg md:text-xl outline-none focus:border-primary transition-colors;
+      }
+      .input-field.has-error {
+        @apply border-error;
+      }
+    }
+  </style>
 </head>
-<body>
-  <main class="card" role="main">
-    <form id="age-form" novalidate>
-      <fieldset class="inputs">
-        <div class="field">
-          <label for="day">Día</label>
-          <input id="day" name="day" type="text" inputmode="numeric" placeholder="DD" aria-describedby="day-error" />
-          <p class="error" id="day-error" aria-live="polite"></p>
+<body class="min-h-screen bg-bg-gray flex items-center justify-center p-6 font-sans text-off-black">
+  <main class="bg-white w-full max-w-3xl rounded-2xl rounded-br-[120px] p-8 md:p-12 shadow-lg" role="main">
+    <form id="age-form" novalidate class="mb-8">
+      <fieldset class="flex gap-4 md:gap-6 border-0 p-0 m-0 mb-6">
+        <div class="flex-1 min-w-[100px]">
+          <label for="day" class="block uppercase tracking-widest text-xs text-dark-gray mb-2">Día</label>
+          <input id="day" name="day" type="text" inputmode="numeric" placeholder="DD" aria-describedby="day-error" 
+                 class="input-field" />
+          <p class="error min-h-[18px] text-error text-xs mt-1.5" id="day-error" aria-live="polite"></p>
         </div>
 
-        <div class="field">
-          <label for="month">Mes</label>
-          <input id="month" name="month" type="text" inputmode="numeric" placeholder="MM" aria-describedby="month-error" />
-          <p class="error" id="month-error" aria-live="polite"></p>
+        <div class="flex-1 min-w-[100px]">
+          <label for="month" class="block uppercase tracking-widest text-xs text-dark-gray mb-2">Mes</label>
+          <input id="month" name="month" type="text" inputmode="numeric" placeholder="MM" aria-describedby="month-error" 
+                 class="input-field" />
+          <p class="error min-h-[18px] text-error text-xs mt-1.5" id="month-error" aria-live="polite"></p>
         </div>
 
-        <div class="field">
-          <label for="year">Año</label>
-          <input id="year" name="year" type="text" inputmode="numeric" placeholder="YYYY" aria-describedby="year-error" />
-          <p class="error" id="year-error" aria-live="polite"></p>
+        <div class="flex-1 min-w-[100px]">
+          <label for="year" class="block uppercase tracking-widest text-xs text-dark-gray mb-2">Año</label>
+          <input id="year" name="year" type="text" inputmode="numeric" placeholder="YYYY" aria-describedby="year-error" 
+                 class="input-field" />
+          <p class="error min-h-[18px] text-error text-xs mt-1.5" id="year-error" aria-live="polite"></p>
         </div>
       </fieldset>
 
-      <div class="divider">
-        <button class="submit" aria-label="Calcular edad" type="submit">
+      <div class="relative flex items-center gap-4 mb-6">
+        <div class="flex-1 h-px bg-light-gray"></div>
+        <button class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl cursor-pointer 
+                       hover:brightness-110 active:scale-95 transition-all" 
+                aria-label="Calcular edad" type="submit">
           <span>↴</span>
         </button>
       </div>
     </form>
 
-    <section class="results" aria-live="polite">
-      <p><span id="years" class="number">--</span> <strong>years</strong></p>
-      <p><span id="months" class="number">--</span> <strong>months</strong></p>
-      <p><span id="days" class="number">--</span> <strong>days</strong></p>
+    <section class="mt-6 text-5xl md:text-7xl leading-tight" aria-live="polite">
+      <p class="m-0 font-extrabold">
+        <span id="years" class="text-primary italic">--</span> <strong class="font-extrabold">years</strong>
+      </p>
+      <p class="m-0 font-extrabold">
+        <span id="months" class="text-primary italic">--</span> <strong class="font-extrabold">months</strong>
+      </p>
+      <p class="m-0 font-extrabold">
+        <span id="days" class="text-primary italic">--</span> <strong class="font-extrabold">days</strong>
+      </p>
     </section>
   </main>
-<footer class="attribution">
-  Challenge by
-  <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">
-    Frontend Mentor
-  </a>.
-  Coded by
-  <a href="https://github.com/blackmagenuit" target="_blank" rel="noreferrer">
-    blackmagenuit
-  </a>.
-</footer>
+  
+  <footer class="fixed bottom-0 left-0 right-0 text-center text-sm text-dark-gray p-5 bg-bg-gray">
+    Challenge by
+    <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer" 
+       class="text-primary no-underline font-medium hover:underline hover:brightness-110 transition-all">
+      Frontend Mentor
+    </a>.
+    Coded by
+    <a href="https://github.com/blackmagenuit" target="_blank" rel="noreferrer" 
+       class="text-primary no-underline font-bold text-[15px] hover:underline hover:scale-105 transition-all">
+      blackmagenuit
+    </a>.
+  </footer>
 
   <script src="script.js"></script>
 </body>

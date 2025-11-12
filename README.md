@@ -28,7 +28,7 @@ It includes full validation (impossible dates, empty fields, future years) and s
 ## 🧩 Technologies Used
 
 - **HTML5** – semantic and accessible structure  
-- **CSS3** – responsive layout with variables and `clamp()`  
+- **Tailwind CSS** – utility-first CSS framework for rapid styling  
 - **JavaScript (ES6)** – validation and precise date calculations  
 - **GitHub Pages** – for deployment
 
@@ -49,8 +49,7 @@ It includes full validation (impossible dates, empty fields, future years) and s
 ```
 age-calculator-app-main/
 │
-├── index.html        # Main structure
-├── styles.css        # Styles and layout
+├── index.html        # Main structure with Tailwind CSS
 ├── script.js         # Logic and validation
 ├── preview.jpg       # Design preview
 └── README.md         # Project documentation
@@ -61,7 +60,7 @@ age-calculator-app-main/
 ## 💡 Lessons Learned
 
 - How to validate real calendar dates in JavaScript using `Date`.
-- Responsive scaling with CSS `clamp()` and custom properties.
+- Using Tailwind CSS utility classes for rapid and responsive development.
 - Keeping JS logic modular and readable.
 - Providing accessible feedback for form errors.
 
