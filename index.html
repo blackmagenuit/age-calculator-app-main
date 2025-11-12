@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Age Calculator</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="card" role="main">
+    <form id="age-form" novalidate>
+      <fieldset class="inputs">
+        <div class="field">
+          <label for="day">Día</label>
+          <input id="day" name="day" type="text" inputmode="numeric" placeholder="DD" aria-describedby="day-error" />
+          <p class="error" id="day-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="month">Mes</label>
+          <input id="month" name="month" type="text" inputmode="numeric" placeholder="MM" aria-describedby="month-error" />
+          <p class="error" id="month-error" aria-live="polite"></p>
+        </div>
+
+        <div class="field">
+          <label for="year">Año</label>
+          <input id="year" name="year" type="text" inputmode="numeric" placeholder="YYYY" aria-describedby="year-error" />
+          <p class="error" id="year-error" aria-live="polite"></p>
+        </div>
+      </fieldset>
+
+      <div class="divider">
+        <button class="submit" aria-label="Calcular edad" type="submit">
+          <span>↴</span>
+        </button>
+      </div>
+    </form>
+
+    <section class="results" aria-live="polite">
+      <p><span id="years" class="number">--</span> <strong>years</strong></p>
+      <p><span id="months" class="number">--</span> <strong>months</strong></p>
+      <p><span id="days" class="number">--</span> <strong>days</strong></p>
+    </section>
+  </main>
+<footer class="attribution">
+  Challenge by
+  <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer">
+    Frontend Mentor
+  </a>.
+  Coded by
+  <a href="https://github.com/blackmagenuit" target="_blank" rel="noreferrer">
+    blackmagenuit
+  </a>.
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
