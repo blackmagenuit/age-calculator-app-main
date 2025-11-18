@@ -28,8 +28,9 @@ It includes full validation (impossible dates, empty fields, future years) and s
 ## 🧩 Technologies Used
 
 - **HTML5** – semantic and accessible structure  
-- **Tailwind CSS** – utility-first CSS framework for rapid styling  
+- **Tailwind CSS** – utility-first CSS framework for rapid styling (locally compiled)
 - **JavaScript (ES6)** – validation and precise date calculations  
+- **Node.js & npm** – for Tailwind CSS compilation
 - **GitHub Pages** – for deployment
 
 ---
@@ -41,6 +42,7 @@ It includes full validation (impossible dates, empty fields, future years) and s
 ✅ Accessible error messages using `aria-live`  
 ✅ Animated number transitions  
 ✅ Fully responsive design  
+✅ Tailwind CSS compiled locally (no CDN dependencies)
 
 ---
 
@@ -49,10 +51,16 @@ It includes full validation (impossible dates, empty fields, future years) and s
 ```
 age-calculator-app-main/
 │
-├── index.html        # Main structure with Tailwind CSS
-├── script.js         # Logic and validation
-├── preview.jpg       # Design preview
-└── README.md         # Project documentation
+├── index.html           # Main structure with Tailwind CSS
+├── script.js            # Logic and validation
+├── src/
+│   └── input.css        # Tailwind CSS source file
+├── dist/
+│   └── output.css       # Compiled Tailwind CSS
+├── package.json         # npm dependencies and scripts
+├── tailwind.config.js   # Tailwind configuration
+├── preview.jpg          # Design preview
+└── README.md            # Project documentation
 ```
 
 ---
@@ -61,6 +69,7 @@ age-calculator-app-main/
 
 - How to validate real calendar dates in JavaScript using `Date`.
 - Using Tailwind CSS utility classes for rapid and responsive development.
+- Setting up Tailwind CSS with local compilation using npm.
 - Keeping JS logic modular and readable.
 - Providing accessible feedback for form errors.
 
@@ -76,7 +85,26 @@ age-calculator-app-main/
    ```bash
    cd age-calculator-app-main
    ```
-3. Open `index.html` in your browser.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Build Tailwind CSS:
+   ```bash
+   npm run build
+   ```
+5. Open `index.html` in your browser or use a local server:
+   ```bash
+   python -m http.server 8000
+   ```
+   Then visit `http://localhost:8000`
+
+### Development Mode
+
+To watch for changes and automatically recompile Tailwind CSS:
+```bash
+npm run watch
+```
 
 ---
 
