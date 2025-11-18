@@ -1,0 +1,26 @@
+{
+  "name": "age-calculator-app-main",
+  "version": "1.0.0",
+  "description": "A web application that accurately calculates your age in **years, months, and days** based on your date of birth.   Built as part of a [Frontend Mentor](https://www.frontendmentor.io?ref=challenge) challenge, focusing on clean structure, responsive design, and accessible validation using HTML, CSS, and JavaScript.",
+  "main": "script.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blackmagenuit/age-calculator-app-main.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/blackmagenuit/age-calculator-app-main/issues"
+  },
+  "homepage": "https://github.com/blackmagenuit/age-calculator-app-main#readme",
+  "devDependencies": {
+    "tailwindcss": "^4.1.17"
+  }
+}

@@ -5,94 +5,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Age Calculator</title>
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary': 'hsl(259, 100%, 65%)',
-            'error': 'hsl(0, 100%, 67%)',
-            'off-black': 'hsl(0, 0%, 8%)',
-            'dark-gray': 'hsl(0, 0%, 20%)',
-            'light-gray': 'hsl(0, 0%, 86%)',
-            'bg-gray': 'hsl(0, 0%, 94%)'
-          }
-        }
-      }
-    }
-  </script>
+  <link rel="stylesheet" href="./dist/output.css" />
   <style>
-    .input-field.has-error {
-      border-color: hsl(0, 100%, 67%);
-    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
     
-    @media (max-width: 640px) {
-      body {
-        padding-bottom: 70px;
-      }
+    .has-error {
+      border-color: hsl(0, 100%, 67%) !important;
     }
   </style>
 </head>
-<body class="min-h-screen bg-bg-gray flex items-center justify-center p-4 sm:p-6 font-sans text-off-black">
-  <main class="bg-white w-full max-w-3xl rounded-2xl rounded-br-[80px] sm:rounded-br-[120px] p-6 sm:p-8 md:p-12 shadow-lg" role="main">
-    <form id="age-form" novalidate class="mb-6 sm:mb-8">
-      <fieldset class="flex gap-3 sm:gap-4 md:gap-6 border-0 p-0 m-0 mb-4 sm:mb-6">
-        <div class="flex-1 min-w-0">
-          <label for="day" class="block uppercase tracking-wider sm:tracking-widest text-[10px] sm:text-xs text-dark-gray mb-1 sm:mb-2">Día</label>
+<body class="m-0 bg-[hsl(0,0%,94%)] font-sans text-[hsl(0,0%,8%)] grid place-items-center p-6">
+  <main class="bg-white w-[min(720px,95vw)] rounded-2xl rounded-br-[120px] p-[clamp(20px,4vw,40px)] shadow-[0_10px_30px_rgba(0,0,0,0.05)]" role="main">
+    <form id="age-form" novalidate>
+      <fieldset class="flex gap-[clamp(12px,3vw,24px)] border-0 p-0 m-0 mb-6">
+        <div class="flex-1 min-w-[100px]">
+          <label for="day" class="block uppercase tracking-[0.2em] text-xs text-[hsl(0,0%,20%)] mb-1.5">Día</label>
           <input id="day" name="day" type="text" inputmode="numeric" placeholder="DD" aria-describedby="day-error" 
-                 class="input-field w-full px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg border border-light-gray font-bold text-base sm:text-lg md:text-xl outline-none focus:border-primary transition-colors" />
-          <p class="error min-h-[18px] text-error text-[10px] sm:text-xs mt-1 sm:mt-1.5" id="day-error" aria-live="polite"></p>
+                 class="w-full px-4 py-3.5 rounded-lg border border-[hsl(0,0%,86%)] font-bold text-[clamp(18px,2.5vw,22px)] outline-none bg-white focus:border-[hsl(259,100%,65%)] transition-colors" />
+          <p class="min-h-[18px] text-[hsl(0,100%,67%)] text-xs mt-1.5" id="day-error" aria-live="polite"></p>
         </div>
 
-        <div class="flex-1 min-w-0">
-          <label for="month" class="block uppercase tracking-wider sm:tracking-widest text-[10px] sm:text-xs text-dark-gray mb-1 sm:mb-2">Mes</label>
+        <div class="flex-1 min-w-[100px]">
+          <label for="month" class="block uppercase tracking-[0.2em] text-xs text-[hsl(0,0%,20%)] mb-1.5">Mes</label>
           <input id="month" name="month" type="text" inputmode="numeric" placeholder="MM" aria-describedby="month-error" 
-                 class="input-field w-full px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg border border-light-gray font-bold text-base sm:text-lg md:text-xl outline-none focus:border-primary transition-colors" />
-          <p class="error min-h-[18px] text-error text-[10px] sm:text-xs mt-1 sm:mt-1.5" id="month-error" aria-live="polite"></p>
+                 class="w-full px-4 py-3.5 rounded-lg border border-[hsl(0,0%,86%)] font-bold text-[clamp(18px,2.5vw,22px)] outline-none bg-white focus:border-[hsl(259,100%,65%)] transition-colors" />
+          <p class="min-h-[18px] text-[hsl(0,100%,67%)] text-xs mt-1.5" id="month-error" aria-live="polite"></p>
         </div>
 
-        <div class="flex-1 min-w-0">
-          <label for="year" class="block uppercase tracking-wider sm:tracking-widest text-[10px] sm:text-xs text-dark-gray mb-1 sm:mb-2">Año</label>
+        <div class="flex-1 min-w-[100px]">
+          <label for="year" class="block uppercase tracking-[0.2em] text-xs text-[hsl(0,0%,20%)] mb-1.5">Año</label>
           <input id="year" name="year" type="text" inputmode="numeric" placeholder="YYYY" aria-describedby="year-error" 
-                 class="input-field w-full px-3 sm:px-4 py-2.5 sm:py-3.5 rounded-lg border border-light-gray font-bold text-base sm:text-lg md:text-xl outline-none focus:border-primary transition-colors" />
-          <p class="error min-h-[18px] text-error text-[10px] sm:text-xs mt-1 sm:mt-1.5" id="year-error" aria-live="polite"></p>
+                 class="w-full px-4 py-3.5 rounded-lg border border-[hsl(0,0%,86%)] font-bold text-[clamp(18px,2.5vw,22px)] outline-none bg-white focus:border-[hsl(259,100%,65%)] transition-colors" />
+          <p class="min-h-[18px] text-[hsl(0,100%,67%)] text-xs mt-1.5" id="year-error" aria-live="polite"></p>
         </div>
       </fieldset>
 
-      <div class="relative flex items-center gap-4 mb-4 sm:mb-6">
-        <div class="flex-1 h-px bg-light-gray"></div>
-        <button class="bg-primary text-white w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-2xl sm:text-3xl cursor-pointer 
-                       hover:brightness-110 active:scale-95 transition-all" 
-                aria-label="Calcular edad" type="submit">
-          <span>↴</span>
-        </button>
-        <div class="flex-1 h-px bg-light-gray sm:hidden"></div>
+      <div class="relative flex items-center gap-4">
+        <div class="flex-1 h-px bg-[hsl(0,0%,86%)]"></div>
+        <button class="border-0 bg-[hsl(259,100%,65%)] text-white w-16 h-16 rounded-full grid place-items-center text-[28px] cursor-pointer 
+                       hover:brightness-110 active:scale-[0.97] transition-[transform_0.1s_ease,filter_0.2s_ease]" 
+                aria-label="Calcular edad" type="submit">↴</button>
       </div>
     </form>
 
-    <section class="mt-4 sm:mt-6 text-4xl sm:text-5xl md:text-7xl leading-tight" aria-live="polite">
+    <section class="mt-6 text-[clamp(40px,8vw,72px)] leading-[1.1]" aria-live="polite">
       <p class="m-0 font-extrabold">
-        <span id="years" class="text-primary italic">--</span> <strong class="font-extrabold">years</strong>
+        <span id="years" class="text-[hsl(259,100%,65%)] italic">--</span> years
       </p>
       <p class="m-0 font-extrabold">
-        <span id="months" class="text-primary italic">--</span> <strong class="font-extrabold">months</strong>
+        <span id="months" class="text-[hsl(259,100%,65%)] italic">--</span> months
       </p>
       <p class="m-0 font-extrabold">
-        <span id="days" class="text-primary italic">--</span> <strong class="font-extrabold">days</strong>
+        <span id="days" class="text-[hsl(259,100%,65%)] italic">--</span> days
       </p>
     </section>
   </main>
   
-  <footer class="fixed bottom-0 left-0 right-0 text-center text-xs sm:text-sm text-dark-gray py-3 px-2 sm:p-5 bg-bg-gray">
+  <footer class="mt-8 text-center text-sm text-[hsl(0,0%,20%)] p-5">
     Challenge by
     <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noreferrer" 
-       class="text-primary no-underline font-medium hover:underline hover:brightness-110 transition-all">
+       class="text-[hsl(259,100%,65%)] no-underline font-medium hover:underline hover:brightness-[1.2] transition-all">
       Frontend Mentor
     </a>.
     Coded by
     <a href="https://github.com/blackmagenuit" target="_blank" rel="noreferrer" 
-       class="text-primary no-underline font-bold text-sm sm:text-[15px] hover:underline hover:scale-105 transition-all inline-block">
+       class="text-[hsl(259,100%,65%)] no-underline font-bold text-[15px] hover:underline hover:scale-105 transition-all inline-block">
       blackmagenuit
     </a>.
   </footer>
